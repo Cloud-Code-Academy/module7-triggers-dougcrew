@@ -46,15 +46,19 @@ public with sharing class TriggerTest {
         
         // Perform the test
         Test.startTest();
+
         Database.DMLOptions dml = new Database.DMLOptions(); 
         dml.DuplicateRuleHeader.allowSave = true;
         dml.DuplicateRuleHeader.runAsCurrentUser = true;
         Database.insert(accountTypeProspect, dml);
+        
+    List<Account> firstCheck = [SELECT Id, Name, Type FROM Account WHERE Type = 'Prospect'];
         Database.insert(accountTypeNotChange, dml);
         Test.stopTest();
         
         // Retrieve the accounts again
         List<Account> prospectAccounts = [SELECT Id, Type FROM Account WHERE Type = 'Prospect'];
+    
 
         // Assert that the number of accounts inserted is correct
         System.assertEquals(200, prospectAccounts.size(), 'Number of accounts inserted is incorrect.');
