@@ -49,7 +49,6 @@ trigger OpportunityTrigger on Opportunity (before insert, before update, after u
                 if(!acc.Contacts.isEmpty()) {
                     accToCEOMap.put(acc.Id, acc.Contacts);
                 }
-            
             }
 
             for(Opportunity opp : Trigger.new) {    
