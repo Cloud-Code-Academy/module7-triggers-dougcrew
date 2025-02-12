@@ -373,7 +373,7 @@ public with sharing class TriggerTest {
                 if (i == 0) {
                     con.Title = 'CEO';
                     con.FirstName = 'Big Boss';
-                }
+                } 
                 contactsToInsert.add(con);
             }  
             
